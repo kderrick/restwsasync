@@ -5,7 +5,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class CheckLists {
+public class ChecksList {
 	private List<Check> checks;
 
 	public List<Check> getChecks() {
