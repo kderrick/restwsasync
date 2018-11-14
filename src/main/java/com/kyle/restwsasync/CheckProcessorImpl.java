@@ -1,5 +1,6 @@
 package com.kyle.restwsasync;
 
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.container.AsyncResponse;
 
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class CheckProcessorImpl implements CheckProcessor {
 		//logic would go here
 		new Thread() {
 			public void run() {
+				if(checkLists==null || checkLists.getChecks()==null || checkLists.getChecks().size() == 0) {
+					response.resume(new BadRequestException());
+				}
 				response.resume(true);
 			}
 		} .start();
